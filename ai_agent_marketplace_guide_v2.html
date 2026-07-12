@@ -368,10 +368,7 @@ create policy "Buyers can review agents they purchased"
     )
   );</code></pre></div>
 
-        <div class="danger-box">
-            <h4>Critical: <code>system_prompt</code> has no SELECT policy for buyers</h4>
-            <p>Notice there's no "public can view" policy covering the <code>system_prompt</code> column. That's deliberate — a creator's prompt engineering is their IP. Buyers should never be able to query it directly from the client. Only the <code>run-agent</code> Edge Function, running with the service role key server-side, can read it. Double check this before going live: a broad <code>select (true)</code> policy on the whole <code>agents</code> table would leak every creator's prompts to anyone with dev tools open.</p>
-        </div>
+
 
         <div class="step-box">
             <div class="step-number">2</div>
